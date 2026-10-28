@@ -1,0 +1,38 @@
+{
+  "name": "harness2-lessons-bridge",
+  "version": "0.1.0",
+  "description": "Read pi-harness2 lessons from Pi and DeepSeek Harness",
+  "license": "MIT",
+  "repository": "git+https://github.com/YeChenglin8888/harness2-lessons-bridge.git",
+  "keywords": ["pi", "deepseek-harness", "harness2", "plugin"],
+  "type": "module",
+  "main": "./index.js",
+  "files": ["README.md", "LICENSE", "index.js", "lessons.js", "pi.ts", "cordis.patch.yml"],
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "pi": {
+    "extensions": ["./pi.ts"]
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.2.2-alpha.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-tools": "0.2.2-alpha.2",
+    "typebox": "1.4.3"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/*.test.js test/*.test.ts"
+  }
+}
